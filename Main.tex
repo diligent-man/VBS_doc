@@ -1,0 +1,111 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{mwe}
+\usepackage{fontspec}                % font
+\usepackage{xcolor}					 % text color
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}		 		 % enumerate env
+\usepackage{graphicx}				 % insert img 
+\usepackage{geometry} 				 % page setups
+\usepackage{titlesec}
+\usepackage{tabularx,caption} 		 % for table
+\usepackage{subcaption} 
+
+\usepackage{import}                  % import other Latex files. Not prone to error like \input or \include
+
+
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=15mm,
+	top=20mm,
+}
+
+
+\hypersetup{
+	colorlinks=true,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=blue,
+	urlcolor=blue
+}
+
+
+% Set up one more sub level of section, then must redefine paragraph and subparagraph
+\setcounter{secnumdepth}{4}
+\titleclass{\subsubsubsection}{straight}[\subsection]
+\newcounter{subsubsubsection}[subsubsection]
+
+\titleformat{\subsubsubsection}
+{\normalfont\normalsize\bfseries}
+{\thesubsubsubsection}{1em}{}
+\titlespacing{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+	{3.25ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+	{3.25ex \@plus1ex \@minus .2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{tocdepth}{4} % how many sectioning levels to show in Table of Contents
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+
+
+% Renumber section
+\renewcommand\thesection{\Alph{section}}
+\renewcommand\thesubsection{\Roman{subsection}}
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+\renewcommand\thesubsubsubsection{\alph{subsubsubsection}}
+
+
+% Trong's command
+\newcommand{\ipa}[1]{\textipa{#1}}
+\newcommand{\subscript}[1]{$_{{#1}}$}
+\newcommand{\superscript}[1]{$^{{#1}}$}
+\newcommand{\red}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\blue}[1]{\textcolor{blue}{\textbf{#1}}}
+\newcommand{\green}[1]{\textcolor{green}{\textbf{#1}}}
+\newcommand{\tbar}[1]{\ensuremath{\bar{\text{#1}}}}  % text mode for bar
+\newcommand{\img}[3]{\includegraphics[width=#1, height=#2]{{#3}}}	
+\newcommand{\titlePage}{
+	\begin{titlepage}
+		\centering
+		
+		{\huge \bfseries Video Browser Showndown\par}
+		\vspace{.5cm}
+		{\Large Personal document\par}
+		\vspace{.5cm}
+		{\textsc{FPTU - BKU} \par}
+		
+		\vspace{1cm}
+		{\Large\itshape Compiled by\par}
+		\vspace{1cm}
+		{\textsc{Nguyễn Đức Trọng - Nguyễn Đức Tâm} \par}
+		{\large August 29\superscript{th}, 2024\par}
+		\begin{center}
+			
+		\end{center}
+	\end{titlepage}
+}
+
+
+\begin{document}
+\titlePage\tableofcontents\newpage
+\import{Src/Overview}{overview.tex} \newpage
+\end{document}
+
+
+
