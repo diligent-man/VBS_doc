@@ -1,0 +1,74 @@
+\subsection{Related problems}
+\subsubsection{Content-Based Video Retrieval - CBVR} % Finished
+\textbf{Definition}\\
+\indent Content-based Video Retrieval refers to the provision of search facilities over archives of digital video
+content, where these search facilities are based on
+the outcome of an analysis of digital video content
+to extract indexable data for the search process. CBVR includes \textbf{video segmentation}, and \textbf{low-level features extraction}. \textbf{Video segmentation} includes shot boundary detection, key frame extraction, and scene segmentation. \textbf{Feature extraction} includes extracting static features of key frames, object features, and motion features\\
+
+\noindent\textbf{Unit of retrieval}\vspace{-.25cm}
+\begin{enumerate}
+	\item Shot\\
+	Def 1: A shot lasts from the first moment the camera records until it’s stopped. (from Content-Based Video Retrieval in \href{https://link.springer.com/referencework/10.1007/978-0-387-39940-9}{Encyclopedia of database systems})\\
+	
+	Def 2: Series of continuous frames (images) from a single cam. (from \href{https://www.wevideo.com/blog/scene-vs-shot}{here})\\
+	
+	Def 3: A shot is a sequence of frames shot uninterruptedly by one camera (Wiki)\\
+	-> Shot focuses on technical aspect of recording.
+	
+	\item Scene\\
+	Def 1: A logical combination of video shots
+	that together comprise some meaningful semantic
+	unit (from Content-Based Video Retrieval in \href{https://link.springer.com/referencework/10.1007/978-0-387-39940-9}{Encyclopedia of database systems} )
+	
+	Def 2: A 'scene' is a series of shots combined to represent a continuous action or event. Scenes set up larger plot points and themes. Shots make scenes possible (from \href{https://www.wevideo.com/blog/scene-vs-shot}{here})\\
+	-> Scene emphasizes on \textbf{narrative coherence}.
+\end{enumerate}
+
+\begin{figure}[h!]
+	\centering
+	\img{7cm}{5cm}{Picture/Overview/video_scene_shot_frame.png}
+	\caption{Video Hierarchically}
+\end{figure}
+
+\noindent In many CBVR systems, \textbf{shot is more preferable} due to the fact that it is relatively easy to split a video file into its constituent shot in an automatic process called \textbf{shot boundary detection}\\
+
+\noindent\textbf{UI/ UX}\vspace{-2.5mm}
+UI should be able to
+\begin{enumerate}
+	\item represent digital video effectively
+	\item represent all search facilities and other related components
+	\item other misc components if have
+\end{enumerate}
+
+\noindent\textbf{CBVR with textual sources}\\
+There are some text surrogate can be leveraged:\vspace{-2.5mm}
+\begin{enumerate}
+	\item Audio from video (spoken): leveraging text2speech for processing
+	\item In-video text (written): leveraging OCR for processing
+	\item Closed caption annotation \& metadata (e.g. MPEG 7, ...)
+\end{enumerate}
+
+\noindent\textbf{CBVR with visual sources}\\
+\indent Low-level feature extraction is operated over individual key frames or scenes, but it leaves a huge semantic gap. To help bridge this semantic gap, a more complex semantic visual concepts have been introduced, such as \red{people} (faces, newsreaders), \red{location} (indoor/outdoor, cityscape/landscape), \red{objects} (buildings, cars, airplanes), \red{events} (explosions, violence) and \red{production techniques} such as camera motion.\\
+
+\noindent\textbf{CBVR with audio sources}\\
+\noindent Apart from speech2text, audio sources can be utilized in the way such that\vspace{-2.5mm}
+\begin{enumerate}
+	\item Non-standard or abnormal audio events, namely a window breaking, a door hard slam, and so on.
+	
+	\item Key events such as goal-mouth detection or onscreen scoreboard changing in soccer
+\end{enumerate}
+\begin{figure}[h!]
+	\centering
+	\img{10cm}{8cm}{Picture/Overview/CBVR_workflow.png}
+	\caption{CBVR workflow (from Fı́schlár system at
+		TRECVid in 2004)}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection{Semantic-Based Video Retrieval - SBVR} % Incomplete
+Discuss later
+
+

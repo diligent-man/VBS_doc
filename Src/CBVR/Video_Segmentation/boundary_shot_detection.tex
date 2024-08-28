@@ -1,0 +1,36 @@
+\section{CBVR step by step}
+\subsection{Video Segmentation}
+\subsubsection{Boundary shot detection}
+\textbf{Syn}: Shot transition detection, cut detection\\
+
+\noindent\textbf{Definition}\\
+\indent Boundary shot detection is a video processing that automatically detect the transition between shots in the digital video with the aim of temporally segmenting a video into key frames. In the context of boundary shot detection, we have 2 different shot transition types:
+\begin{figure}[h!]
+	\centering
+	\img{7cm}{5cm}{Picture/CBVR/Video_Segmentation/shot_transition_types.png}
+	\caption{Shot transition types}
+\end{figure}
+
+\noindent\textbf{Approaches}
+\noindent\textbf{Pixel-Based Methods}\\
+In this method, we perform pixel-by-pixel comparison b/t two consecutive frames , and the cut is decided when it's higher than user-defined threshold.\\
+
+\noindent Drawbacks:\vspace{-2.5mm}
+\begin{enumerate}
+	\item Manual threshold setting
+	\item Sensitive to fast obj, cam movement \& zooming
+\end{enumerate}
+
+
+\noindent\textbf{Histogram-Based Methods}\\
+In this method, we perform comparison b/t two consecutive frames' histograms via distance similarity, and the cut is decided when it's higher than user-defined threshold. There are several ways of calculating similarity distance: Manhattan distance, Euclidean distance, etc. This method is based on classical algorithms like SVD, HOG, HSV histogram, ...\\
+
+
+\noindent\textbf{Edge-Based Methods}\\
+In this approach, a transition is declared when the edge locations of the current frame exhibit a large difference with the edges of previous frames.
+
+
+\noindent\textbf{Motion-Based Methods}\\
+See linear motion prediction method based on wavelet coefficients for more information.
+
+\noindent\textbf{Deep Learning-Based Methods}\\
